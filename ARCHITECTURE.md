@@ -1,7 +1,8 @@
 # DATAFLOW Millionaire — Master Architecture Document
 
-> Version 1.0 | April 13, 2026
-> Status: Pre-build. This document is the single source of truth before any code is written.
+> Version 1.1 | April 29, 2026
+> Status: **v0.1.0 SHIPPED** as a Claude SKILL.md (no React, no web app).
+> See `CHANGELOG.md` for ship notes. Original v1.0 spec preserved below for history.
 
 ---
 
@@ -285,13 +286,18 @@ If compute runs out mid-build:
 
 ---
 
-## Tech Stack (Version 1)
+## Tech Stack (Version 1) — UPDATED 2026-04-29
 
-- **React artifact** in Claude chat
-- **Claude API** for question generation
-- **In-memory state** for session
-- **Save card** for persistence between sessions
-- No database, no hosting, no backend
+**Pivoted from React → SKILL.md** during v0.1.0 build (user constraint: "not a web app").
+
+- **SKILL.md as game engine** — Claude reads instructions, runs the game in conversation
+- **ASCII art + emoji blocks** for visual feedback (replaces POW!! / DIZZY!! image renders)
+- **AI-generated questions** per session (Claude as the question engine, no external API)
+- **In-memory state** during a session
+- **Save card** (markdown block) for persistence between sessions
+- No database, no hosting, no backend, no React, no animations
+
+Original v1.0 plan (React artifact in Claude chat) preserved below for history.
 
 ---
 
@@ -308,11 +314,12 @@ If compute runs out mid-build:
 
 ---
 
-## Open Questions (Resolve Before Building)
+## Open Questions — RESOLVED 2026-04-29
 
-- [ ] Title progression — exact requirements (earnings threshold? sessions played?)
-- [ ] Can you own multiples of same upgrade?
-- [ ] Question bank file (`question-bank.md`) or pure AI generation?
+- [x] **Title progression** — earnings AND sessions, both must clear (not OR). Thresholds: $10k+3, $100k+10, $1M+25, $10M+50.
+- [x] **Multiples of same upgrade?** — No. One of each. Keeps store clean and decisions sharp.
+- [x] **Question bank vs AI-gen?** — Pure AI-gen v0.1. v0.2 adds optional bank populated from StrataScratch wins.
+- [x] **(Implicit, surfaced during build)** — "React artifact" → ASCII art + emoji blocks. Resolved by user constraint "not a web app."
 
 ---
 
